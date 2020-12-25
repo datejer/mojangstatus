@@ -27,7 +27,7 @@ handler.get(async (req, res) => {
 									),
 								})
 								.then(() => {
-									console.log("Fresh data, saving to cache...");
+									// Fresh data, saving to cache...
 									res.status(200).json(response.data);
 								});
 						} catch (e) {
@@ -69,7 +69,7 @@ handler.get(async (req, res) => {
 									}
 								)
 								.then(() => {
-									console.log("Stale data, updating cache...");
+									// Stale data, updating cache...
 									res.status(200).json(response.data);
 								});
 						} catch (e) {
@@ -85,7 +85,7 @@ handler.get(async (req, res) => {
 						}
 					})
 					.catch((error) => {
-						console.log("No data, serving cache...");
+						// No data from Mojang, serving cache...
 						res
 							.status(200)
 							.json(
@@ -93,7 +93,7 @@ handler.get(async (req, res) => {
 							);
 					});
 			} else if (Date.now() - cached.timestamp < cacheTime) {
-				console.log("Cache still valid, serving cache...");
+				// Cache still valid, serving cache...
 				res
 					.status(200)
 					.json(JSON.parse(JSON.stringify(cached.status).replace(/\+/g, ".")));
