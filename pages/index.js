@@ -34,20 +34,52 @@ export default function Home() {
 						return (
 							<div className={styles.service} key={serviceName}>
 								<span className={styles.serviceName}>{serviceName}</span>
-								<span className={styles.serviceStatus}>{serviceStatus}</span>
+								{serviceStatus === "green" ? (
+									<span
+										className={styles.serviceStatus}
+										style={{ color: "var(--status-indicator-color-positive)" }}
+									>
+										No issues{" "}
+										<status-indicator positive pulse></status-indicator>
+									</span>
+								) : (
+									""
+								)}
+								{serviceStatus === "yellow" ? (
+									<span
+										className={styles.serviceStatus}
+										style={{
+											color: "var(--status-indicator-color-intermediary)",
+										}}
+									>
+										Some issues{" "}
+										<status-indicator intermediary pulse></status-indicator>
+									</span>
+								) : (
+									""
+								)}
+								{serviceStatus === "red" ? (
+									<span
+										className={styles.serviceStatus}
+										style={{ color: "var(--status-indicator-color-negative)" }}
+									>
+										Service unavailable{" "}
+										<status-indicator negative pulse></status-indicator>
+									</span>
+								) : (
+									""
+								)}
 							</div>
 						);
 					})}
 				</div>
 
-				<div>
-					<code className={styles.code}>curl mojan.ga/api/check</code>
-				</div>
+				<code className={styles.code}>curl https://mojan.ga/api/check</code>
 			</main>
 
 			<footer className={styles.footer}>
 				<a href="https://ejer.ga/" target="_blank" rel="noopener noreferrer">
-					Made by ejer
+					Made by <span className={styles.name}>ejer</span>
 				</a>
 			</footer>
 		</div>
