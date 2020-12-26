@@ -1,6 +1,5 @@
 .container {
 	min-height: 100vh;
-	padding: 0 0.5rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -35,15 +34,20 @@
 	color: #0070f3;
 }
 
-.footer:hover .name {
+.footer a:hover .name {
 	text-decoration: underline;
 }
 
 .title {
 	margin: 0;
-	margin-bottom: 3rem;
 	line-height: 1.15;
 	font-size: 4rem;
+}
+
+@media (max-width: 500px) {
+	.title {
+		font-size: 3rem;
+	}
 }
 
 .title,
@@ -53,7 +57,9 @@
 
 .description {
 	line-height: 1.5;
-	font-size: 1.5rem;
+	font-size: 1.25rem;
+	margin: 1rem 0 3rem 0;
+	padding: 0 1rem 0 1rem;
 }
 
 .code {
@@ -64,7 +70,11 @@
 	font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 		Bitstream Vera Sans Mono, Courier New, monospace;
 	color: #fff;
-	margin-top: 3rem;
+	margin: 3rem 1rem 0 1rem;
+}
+
+.list {
+	padding: 0 1rem 0 1rem;
 }
 
 .service {
@@ -74,6 +84,7 @@
 	align-items: center;
 	padding: 1em;
 	justify-content: space-between;
+	flex-wrap: wrap;
 }
 
 .service:last-child {
@@ -95,6 +106,18 @@
 	border-top: none;
 }
 
-.serviceStatus {
-	margin-left: 3em;
+.serviceName {
+	margin-right: 3em;
+}
+
+@media (max-width: 375px) {
+	.title {
+		font-size: 2rem;
+	}
+	.description {
+		font-size: 1rem;
+	}
+	.code {
+		font-size: 1rem;
+	}
 }

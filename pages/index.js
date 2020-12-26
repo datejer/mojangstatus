@@ -26,6 +26,9 @@ export default function Home() {
 
 			<main className={styles.main}>
 				<h1 className={styles.title}>MojangStatus</h1>
+				<p className={styles.description}>
+					Cached Mojang Status API - no more ratelimiting!
+				</p>
 
 				<div className={styles.list}>
 					{status.map((service) => {
