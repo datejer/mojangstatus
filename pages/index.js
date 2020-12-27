@@ -31,50 +31,58 @@ export default function Home() {
 				</p>
 
 				<div className={styles.list}>
-					{status.map((service) => {
-						let serviceName = Object.keys(service)[0];
-						let serviceStatus = service[serviceName];
-						return (
-							<div className={styles.service} key={serviceName}>
-								<span className={styles.serviceName}>{serviceName}</span>
-								{serviceStatus === "green" ? (
-									<span
-										className={styles.serviceStatus}
-										style={{ color: "var(--status-indicator-color-positive)" }}
-									>
-										No issues{" "}
-										<status-indicator positive pulse></status-indicator>
-									</span>
-								) : (
-									""
-								)}
-								{serviceStatus === "yellow" ? (
-									<span
-										className={styles.serviceStatus}
-										style={{
-											color: "var(--status-indicator-color-intermediary)",
-										}}
-									>
-										Some issues{" "}
-										<status-indicator intermediary pulse></status-indicator>
-									</span>
-								) : (
-									""
-								)}
-								{serviceStatus === "red" ? (
-									<span
-										className={styles.serviceStatus}
-										style={{ color: "var(--status-indicator-color-negative)" }}
-									>
-										Service unavailable{" "}
-										<status-indicator negative pulse></status-indicator>
-									</span>
-								) : (
-									""
-								)}
-							</div>
-						);
-					})}
+					{status.length === 0 ? (
+						<div class={styles.dotflashing}></div>
+					) : (
+						status.map((service) => {
+							let serviceName = Object.keys(service)[0];
+							let serviceStatus = service[serviceName];
+							return (
+								<div className={styles.service} key={serviceName}>
+									<span className={styles.serviceName}>{serviceName}</span>
+									{serviceStatus === "green" ? (
+										<span
+											className={styles.serviceStatus}
+											style={{
+												color: "var(--status-indicator-color-positive)",
+											}}
+										>
+											No issues{" "}
+											<status-indicator positive pulse></status-indicator>
+										</span>
+									) : (
+										""
+									)}
+									{serviceStatus === "yellow" ? (
+										<span
+											className={styles.serviceStatus}
+											style={{
+												color: "var(--status-indicator-color-intermediary)",
+											}}
+										>
+											Some issues{" "}
+											<status-indicator intermediary pulse></status-indicator>
+										</span>
+									) : (
+										""
+									)}
+									{serviceStatus === "red" ? (
+										<span
+											className={styles.serviceStatus}
+											style={{
+												color: "var(--status-indicator-color-negative)",
+											}}
+										>
+											Service unavailable{" "}
+											<status-indicator negative pulse></status-indicator>
+										</span>
+									) : (
+										""
+									)}
+								</div>
+							);
+						})
+					)}
 				</div>
 
 				<code className={styles.code}>curl https://mojan.ga/api/check</code>

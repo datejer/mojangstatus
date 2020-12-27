@@ -110,6 +110,47 @@
 	margin-right: 3em;
 }
 
+.dotflashing {
+	position: relative;
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	background-color: #282c34;
+	color: #282c34;
+	animation: dotFlashing 1s infinite linear alternate;
+	animation-delay: 0.5s;
+}
+
+.dotflashing::before,
+.dotflashing::after {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	top: 0;
+}
+
+.dotflashing::before {
+	left: -15px;
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	background-color: #282c34;
+	color: #282c34;
+	animation: dotFlashing 1s infinite alternate;
+	animation-delay: 0s;
+}
+
+.dotflashing::after {
+	left: 15px;
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	background-color: #282c34;
+	color: #282c34;
+	animation: dotFlashing 1s infinite alternate;
+	animation-delay: 1s;
+}
+
 @media (max-width: 375px) {
 	.title {
 		font-size: 2rem;
@@ -119,5 +160,15 @@
 	}
 	.code {
 		font-size: 1rem;
+	}
+}
+
+@keyframes dotFlashing {
+	0% {
+		background-color: #282c34;
+	}
+	50%,
+	100% {
+		background-color: #e0e0e0;
 	}
 }
