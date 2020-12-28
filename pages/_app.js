@@ -4,7 +4,7 @@ import "status-indicator/styles.css";
 
 function MyApp({ Component, pageProps }) {
 	return (
-		<ThemeProvider>
+		<ThemeProvider defaultTheme="system">
 			<Component {...pageProps} />
 		</ThemeProvider>
 	);
