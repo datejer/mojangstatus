@@ -21,6 +21,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 }
 
 .footer a {
@@ -36,6 +37,10 @@
 
 .footer a:hover .name {
 	text-decoration: underline;
+}
+
+.themeSwitch:hover {
+	cursor: pointer;
 }
 
 .title {
@@ -63,13 +68,13 @@
 }
 
 .code {
-	background: #282c34;
+	background-color: var(--code-bg);
 	border-radius: 5px;
 	padding: 0.75rem;
 	font-size: 1.1rem;
 	font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 		Bitstream Vera Sans Mono, Courier New, monospace;
-	color: #fff;
+	color: var(--code-fg);
 	margin: 3rem 1rem 0 1rem;
 }
 
@@ -97,9 +102,9 @@
 }
 
 .service:hover {
-	color: #282c34;
-	border-bottom: 1px solid #282c34;
-	border-color: #282c34;
+	color: var(--service-hover);
+	border-bottom: 1px solid var(--service-hover);
+	border-color: var(--service-hover);
 }
 
 .service:hover + .service {

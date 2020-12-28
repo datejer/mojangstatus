@@ -1,10 +1,12 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useTheme } from "next-themes";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
 	const [status, setStatus] = useState([]);
+	const { theme, setTheme } = useTheme();
 
 	useEffect(() => {
 		axios
@@ -27,7 +29,7 @@ export default function Home() {
 			<main className={styles.main}>
 				<h1 className={styles.title}>MojangStatus</h1>
 				<p className={styles.description}>
-					Cached Mojang Status API - no more ratelimiting!
+					Cached Mojang Status API - no more rate limiting!
 				</p>
 
 				<div className={styles.list}>
@@ -89,6 +91,14 @@ export default function Home() {
 			</main>
 
 			<footer className={styles.footer}>
+				<a
+					className={styles.themeSwitch}
+					onClick={() =>
+						theme === "dark" ? setTheme("light") : setTheme("dark")
+					}
+				>
+					{theme === "dark" ? "🌞" : "🌙"}
+				</a>
 				<a href="https://ejer.ga/" target="_blank" rel="noopener noreferrer">
 					Made by <span className={styles.name}>ejer</span>
 				</a>
