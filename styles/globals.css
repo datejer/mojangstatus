@@ -6,14 +6,16 @@
 	--code-bg: #282c34;
 	--code-fg: white;
 	--service-hover: #282c34;
+	--service-border: #e0e0e0;
 }
 
 [data-theme="dark"] {
-	--bg: #282c34;
-	--fg: white;
-	--code-bg: white;
+	--bg: #121212;
+	--fg: #ddd;
+	--code-bg: #ddd;
 	--code-fg: black;
 	--service-hover: #0070f3;
+	--service-border: #444;
 }
 
 html,

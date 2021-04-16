@@ -83,7 +83,7 @@
 }
 
 .service {
-	border: 1px solid #e0e0e0;
+	border: 1px solid var(--service-border);
 	border-bottom: none;
 	display: flex;
 	align-items: center;
@@ -93,7 +93,7 @@
 }
 
 .service:last-child {
-	border-bottom: 1px solid #e0e0e0;
+	border-bottom: 1px solid var(--service-border);
 	border-radius: 0 0 6px 6px;
 }
 

@@ -1,7 +1,8 @@
-import Head from "next/head";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { useTheme } from "next-themes";
+import axios from "axios";
+import SEO from "../components/SEO";
+
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -21,37 +22,7 @@ export default function Home() {
 
 	return (
 		<div className={styles.container}>
-			<Head>
-				<title>MojangStatus</title>
-				<link rel="icon" href="/favicon.png" />
-
-				<meta name="title" content="MojangStatus" />
-				<meta
-					name="description"
-					content="Cached Mojang Status API - no more rate limiting!"
-				/>
-
-				<meta property="og:type" content="website" />
-				<meta property="og:url" content="https://mojan.ga/" />
-				<meta property="og:title" content="MojangStatus" />
-				<meta
-					property="og:description"
-					content="Cached Mojang Status API - no more rate limiting!"
-				/>
-				<meta property="og:image" content="/favicon.png" />
-
-				<meta property="twitter:url" content="https://mojan.ga/" />
-				<meta property="twitter:domain" content="mojan.ga" />
-				<meta property="twitter:title" content="MojangStatus" />
-				<meta
-					property="twitter:description"
-					content="Cached Mojang Status API - no more rate limiting!"
-				/>
-				<meta property="twitter:image" content="/favicon.png" />
-
-				<meta property="og:site_name" content="MojangStatus" />
-				<meta name="theme-color" content="#ffffff" />
-			</Head>
+			<SEO />
 
 			<main className={styles.main}>
 				<h1 className={styles.title}>MojangStatus</h1>
@@ -61,7 +32,7 @@ export default function Home() {
 
 				<div className={styles.list}>
 					{status.length === 0 ? (
-						<div class={styles.dotflashing}></div>
+						<div className={styles.dotflashing}></div>
 					) : (
 						status.map((service) => {
 							let serviceName = Object.keys(service)[0];
